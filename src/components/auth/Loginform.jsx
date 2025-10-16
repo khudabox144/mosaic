@@ -1,23 +1,44 @@
 import React from 'react';
 import Field from '../common/Field'
 import { useForm } from 'react-hook-form';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-useNavigate
+import axios from 'axios';
 const Loginform = () => {
     const {
         register,
         handleSubmit,
         formState: { errors },
+        setError,
     } = useForm();
     const navigate = useNavigate();
     const { setAuth } = useAuth();
-    const submitForm = (formData) => {
-        console.log(formData);
-        const user = { ...formData };
-        setAuth({ user });
-        navigate('/');
+    const submitForm =async (formData) => {
+        // console.log(formData);
+         try{
+      const response = await axios.post(`${import.meta.env.VITE_SERVER_BASE_URL}/auth/login`, formData);
+
+      if (response.status === 200) {
+        const { token, user } = response.data;
+        if (token) {
+          const authToken = token.token;
+          const refreshToken = token.refreshToken;
+
+          console.log(`Login time auth token: ${authToken}`);
+          setAuth({user, authToken, refreshToken});
+
+          navigate("/");
+        }
+      }
+    } catch(error){
+      console.error(error);
+      setError("root.random", {
+        type: "random",
+        message:`User with email ${formData.email} is not found`,
+      })
+    }
+      
 
     }
 
@@ -27,7 +48,7 @@ const Loginform = () => {
     };
 
     return (
-        <motion.form
+        <Motion.form
             className="pb-10 lg:pb-[60px]"
             onSubmit={handleSubmit(submitForm)}
             variants={formVariants}
@@ -62,7 +83,7 @@ const Loginform = () => {
                 />
             </Field>
 
-            <motion.button
+            <Motion.button
                 type='submit'
                 className="w-full mt-6 py-3 bg-cyan-400 text-slate-900 text-lg 
                            font-bold rounded-lg shadow-xl 
@@ -71,8 +92,8 @@ const Loginform = () => {
                 whileTap={{ scale: 0.98 }}
             >
                 Login
-            </motion.button>
-        </motion.form>
+            </Motion.button>
+        </Motion.form>
     );
 };
 
