@@ -25,7 +25,7 @@ const Loginform = () => {
           const authToken = token.token;
           const refreshToken = token.refreshToken;
 
-          console.log(`Login time auth token: ${authToken}`);
+        //   console.log(`Login time auth token: ${authToken}`);
           setAuth({user, authToken, refreshToken});
 
           navigate("/");

@@ -42,7 +42,6 @@ const ProfilePage = () => {
     return (
         <>
         <ProfileInfo/>
-        <ProfilePosts/> 
         </>
     );
 };

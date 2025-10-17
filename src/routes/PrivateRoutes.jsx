@@ -6,7 +6,7 @@ import ProfileProvider from '../provider/ProfileProvider';
 
 const PrivateRoutes = () => {
     const { auth } = useAuth();
-    console.log(auth);
+    // console.log(auth);
     return (
         <>
            {auth?.authToken ? (

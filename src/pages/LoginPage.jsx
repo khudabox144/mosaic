@@ -49,7 +49,7 @@ const LoginPage = () => {
                                 Don’t have an account?
                                 <Link
                                     className="text-cyan-400 font-semibold transition-all hover:text-white hover:underline mx-2"
-                                    to="/register"
+                                    to="/registration"
                                 >
                                     Create New
                                 </Link>

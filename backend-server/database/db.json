@@ -486,7 +486,7 @@
       "password": "$2b$08$XLgmuBqthkljtrVqSXdnk.OotUpoGnArVSrn6CHHt/upkUGTX7N0C",
       "firstName": "Tapas",
       "lastName": "Adhikary",
-      "avatar": "uploads/avatar/avatar-1760606141375-355297217.jpg",
+      "avatar": "uploads/avatar/avatar-1760691021036-926734834.png",
       "email": "atapas@email.com",
       "bio": "vvvvvvghdjfghj"
     },
@@ -514,6 +514,15 @@
       "avatar": "uploads/avatar/avatar-1708802845791-219561000.png",
       "email": "rambo@email.com",
       "bio": "I am Rambo!!!"
+    },
+    {
+      "id": "cb1945bc-e3d9-48f9-ada9-5f8f7be94866",
+      "password": "$2b$08$jreI4dH1Xpfi0sQSpYLBXOYresE0bWi22iKqujDuHT59nfteAG5qS",
+      "firstName": "sakib",
+      "lastName": "biswas",
+      "avatar": "uploads/avatar/avatar-1760693621285-83612298.png",
+      "email": "abc@gmail.com",
+      "bio": "hey im sakib from sust "
     }
   ]
 }
