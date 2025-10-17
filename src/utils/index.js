@@ -1,29 +1,20 @@
 export const getDateDifferenceFromNow = (fromDate) => {
-    let difference = new Date().getTime() - new Date(fromDate).getTime();
+    if (!fromDate) return "";
 
-    difference = difference / 1000;
-    let hourDifference = Math.floor(difference / 3600);
-    difference -= hourDifference * 3600;
-    let minuteDifference = Math.floor(difference / 60);
-    difference -= minuteDifference * 60;
+    const date = new Date(fromDate);
 
-    let message;
+    // Format options
+    const options = {
+        year: "numeric",
+        month: "short", // e.g., Jan, Feb, Mar
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true, // Show AM/PM
+    };
 
-    if (hourDifference > 0) {
-        message = `${hourDifference} hour`;
-    }
+    // Example output: "Oct 17, 2025, 03:42 PM"
+    const formattedDate = date.toLocaleString("en-US", options);
 
-    if (minuteDifference > 0) {
-        message = message
-            ? `${message} ${minuteDifference} minutes`
-            : `${minuteDifference} minutes`;
-    }
-
-    if (difference) {
-        message = message
-            ? `${message} ${Math.round(difference)} seconds`
-            : `${Math.round(difference)} seconds`;
-    }
-
-    return message;
+    return formattedDate;
 };

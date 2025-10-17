@@ -27,7 +27,7 @@ const PostHeader = ({ post }) => {
                     <h6 className="text-base lg:text-lg font-semibold">{post?.author?.name}</h6>
                     <div className="flex items-center gap-1.5 text-gray-400 text-xs lg:text-sm">
                         <img src={TimeIcon} alt="time" className="w-4" />
-                        <span>{`${getDateDifferenceFromNow(post?.createAt)} ago`}</span>
+                        <span>{`${getDateDifferenceFromNow(post?.createAt)}`}</span>
                     </div>
                 </div>
             </div>
